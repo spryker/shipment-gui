@@ -243,7 +243,6 @@ class ShipmentFormDataProvider
     {
         $choices = [];
 
-        /** @var \Generated\Shared\Transfer\AddressTransfer $addressTransfer */
         foreach ($customerAddressesCollection as $addressTransfer) {
             $idCustomerAddress = $addressTransfer->getIdCustomerAddress();
             if ($idCustomerAddress === null) {

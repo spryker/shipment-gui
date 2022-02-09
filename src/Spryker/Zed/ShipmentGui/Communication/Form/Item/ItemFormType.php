@@ -64,11 +64,9 @@ class ItemFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        /** @var array<int> $selectedItems */
         $selectedItems = $options[ShipmentGroupFormType::FIELD_SHIPMENT_SELECTED_ITEMS];
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($selectedItems) {
-            /** @var \Generated\Shared\Transfer\ItemTransfer $item */
             $item = $event->getData();
             $form = $event->getForm();
 
