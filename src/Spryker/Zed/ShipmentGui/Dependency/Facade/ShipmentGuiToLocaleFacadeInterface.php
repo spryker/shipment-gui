@@ -7,12 +7,10 @@
 
 namespace Spryker\Zed\ShipmentGui\Dependency\Facade;
 
-use Generated\Shared\Transfer\TaxSetCollectionTransfer;
-
-interface ShipmentGuiToTaxFacadeInterface
+interface ShipmentGuiToLocaleFacadeInterface
 {
     /**
-     * @return \Generated\Shared\Transfer\TaxSetCollectionTransfer
+     * @return string
      */
-    public function getTaxSets(): TaxSetCollectionTransfer;
+    public function getCurrentLocaleName(): string;
 }
