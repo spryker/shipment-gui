@@ -17,7 +17,7 @@
     {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Configuration'| trans } %}
         {% block widget_content %}
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Delivery Method Key' | trans }}</dt>
                         <dd>{{ shipmentMethod.shipmentMethodKey }}</dd>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Name' | trans }}</dt>
                         <dd>{{ shipmentMethod.name }}</dd>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Carrier Company' | trans }}</dt>
                         <dd>{{ shipmentMethod.carrierName }}</dd>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Availability plugin' | trans }}</dt>
                         <dd>{{ shipmentMethod.availabilityPlugin ?? 'None'| trans }}</dd>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Price plugin' | trans }}</dt>
                         <dd>{{ shipmentMethod.pricePlugin ?? 'None' | trans }}</dd>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Delivery Time plugin' | trans }}</dt>
                         <dd>{{ shipmentMethod.deliveryTimePlugin ?? 'None' | trans }}</dd>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <dl>
                         <dt>{{ 'Is this delivery method active?' | trans }}</dt>
                         <dd><input type="checkbox" disabled {% if shipmentMethod.isActive %}checked="checked"{% endif %}</dd>
