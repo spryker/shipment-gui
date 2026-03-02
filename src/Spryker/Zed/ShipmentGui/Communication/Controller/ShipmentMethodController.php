@@ -15,9 +15,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ShipmentMethodController extends AbstractController
 {
-    /**
-     * @return array
-     */
     public function indexAction(): array
     {
         $table = $this->getFactory()->createShipmentMethodTable();
@@ -25,9 +22,6 @@ class ShipmentMethodController extends AbstractController
         return $this->viewResponse(['methodTable' => $table->render()]);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function tableAction(): JsonResponse
     {
         $table = $this->getFactory()->createShipmentMethodTable();

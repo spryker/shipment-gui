@@ -36,19 +36,11 @@ class ItemFormType extends AbstractType
      */
     public const FIELD_SHIPMENT_SELECTED_ITEMS = 'selected_items';
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'order_item';
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver

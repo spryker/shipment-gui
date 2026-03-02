@@ -80,11 +80,6 @@ class UpdateShipmentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $shipmentMethodForm
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function handleShipmentMethodForm(FormInterface $shipmentMethodForm): RedirectResponse
     {
         $this->getFactory()

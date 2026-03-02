@@ -55,11 +55,6 @@ class ShipmentCarrierFormType extends AbstractType
      */
     protected const MESSAGE_VIOLATION = 'Carrier with the same name already exists.';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -67,9 +62,6 @@ class ShipmentCarrierFormType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'shipment_carrier';
@@ -141,12 +133,6 @@ class ShipmentCarrierFormType extends AbstractType
         return $this;
     }
 
-    /**
-     * @param string $carrierName
-     * @param \Symfony\Component\Validator\Context\ExecutionContextInterface $context
-     *
-     * @return \Generated\Shared\Transfer\ShipmentCarrierRequestTransfer
-     */
     protected function createShipmentCarrierRequestTransfer(string $carrierName, ExecutionContextInterface $context): ShipmentCarrierRequestTransfer
     {
         $formData = $context->getRoot()->getData();

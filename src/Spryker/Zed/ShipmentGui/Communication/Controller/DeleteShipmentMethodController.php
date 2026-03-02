@@ -63,11 +63,6 @@ class DeleteShipmentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @param int $idShipmentMethod
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function handleSubmitForm(int $idShipmentMethod): RedirectResponse
     {
         $this->getFactory()->getShipmentFacade()->deleteMethod($idShipmentMethod);

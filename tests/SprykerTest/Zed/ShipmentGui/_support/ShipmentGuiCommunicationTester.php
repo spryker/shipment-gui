@@ -31,9 +31,6 @@ class ShipmentGuiCommunicationTester extends Actor
 {
     use _generated\ShipmentGuiCommunicationTesterActions;
 
-    /**
-     * @return void
-     */
     public function registerProductManagementStoreRelationFormTypePlugin(): void
     {
         $this->setDependency(ShipmentGuiDependencyProvider::PLUGIN_STORE_RELATION_FORM_TYPE, function () {
@@ -41,9 +38,6 @@ class ShipmentGuiCommunicationTester extends Actor
         });
     }
 
-    /**
-     * @return void
-     */
     public function registerMoneyCollectionFormTypePlugin(): void
     {
         $this->setDependency(ShipmentGuiDependencyProvider::PLUGIN_MONEY_COLLECTION_FORM_TYPE, function () {
@@ -51,9 +45,6 @@ class ShipmentGuiCommunicationTester extends Actor
         });
     }
 
-    /**
-     * @return void
-     */
     public function registerMoneyCollectionFormTypePluginWithoutLocale(): void
     {
         $this->setDependency(ShipmentGuiDependencyProvider::PLUGIN_MONEY_COLLECTION_FORM_TYPE, function () {

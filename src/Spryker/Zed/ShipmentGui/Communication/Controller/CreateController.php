@@ -99,9 +99,6 @@ class CreateController extends AbstractController
         ]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ShipmentTransfer
-     */
     protected function createDefaultShipmentTransfer(): ShipmentTransfer
     {
         return new ShipmentTransfer();
@@ -129,11 +126,6 @@ class CreateController extends AbstractController
         return $requestedItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupResponseTransfer $responseTransfer
-     *
-     * @return void
-     */
     protected function addStatusMessage(ShipmentGroupResponseTransfer $responseTransfer): void
     {
         if ($responseTransfer->getIsSuccessful()) {

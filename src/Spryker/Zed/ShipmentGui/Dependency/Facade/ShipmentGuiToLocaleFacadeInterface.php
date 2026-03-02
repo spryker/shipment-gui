@@ -9,8 +9,5 @@ namespace Spryker\Zed\ShipmentGui\Dependency\Facade;
 
 interface ShipmentGuiToLocaleFacadeInterface
 {
-    /**
-     * @return string
-     */
     public function getCurrentLocaleName(): string;
 }

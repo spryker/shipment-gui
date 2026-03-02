@@ -24,11 +24,6 @@ class ShipmentGuiToSalesFacadeBridge implements ShipmentGuiToSalesFacadeInterfac
         $this->salesFacade = $salesFacade;
     }
 
-    /**
-     * @param int $idSalesOrder
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer|null
-     */
     public function findOrderByIdSalesOrder(int $idSalesOrder): ?OrderTransfer
     {
         return $this->salesFacade->findOrderByIdSalesOrder($idSalesOrder);

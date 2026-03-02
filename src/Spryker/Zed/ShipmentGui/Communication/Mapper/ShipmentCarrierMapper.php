@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\ShipmentCarrierTransfer;
 
 class ShipmentCarrierMapper
 {
-    /**
-     * @param array $requestData
-     * @param \Generated\Shared\Transfer\ShipmentCarrierTransfer $shipmentCarrierTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentCarrierTransfer
-     */
     public function mapRequestDataToShipmentCarrierTransfer(array $requestData, ShipmentCarrierTransfer $shipmentCarrierTransfer): ShipmentCarrierTransfer
     {
         return $shipmentCarrierTransfer->fromArray($requestData, true);

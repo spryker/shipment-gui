@@ -24,9 +24,6 @@ class ShipmentGuiToTaxFacadeBridge implements ShipmentGuiToTaxFacadeInterface
         $this->taxFacade = $taxFacade;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\TaxSetCollectionTransfer
-     */
     public function getTaxSets(): TaxSetCollectionTransfer
     {
         return $this->taxFacade->getTaxSets();

@@ -43,19 +43,11 @@ class ViewShipmentMethodForm extends AbstractType
      */
     public const OPTION_AMOUNT_PER_STORE = 'amount_per_store';
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'shipment_method';
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         parent::configureOptions($resolver);

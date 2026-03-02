@@ -22,9 +22,6 @@ class ShipmentGuiToLocaleFacadeBridge implements ShipmentGuiToLocaleFacadeInterf
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getCurrentLocaleName(): string
     {
         return $this->localeFacade->getCurrentLocaleName();

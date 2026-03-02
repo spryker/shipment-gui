@@ -59,11 +59,6 @@ class ShipmentMethodFormDataProvider extends ViewShipmentMethodFormDataProvider
      */
     protected $shipmentFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToShipmentFacadeInterface $shipmentFacade
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ShipmentGuiToShipmentFacadeInterface $shipmentFacade,
         ShipmentGuiToTaxFacadeInterface $taxFacade,
@@ -137,11 +132,6 @@ class ShipmentMethodFormDataProvider extends ViewShipmentMethodFormDataProvider
         return array_combine($pricePluginOptions, $pricePluginOptions);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodPluginCollectionTransfer $shipmentMethodPluginCollectionTransfer
-     *
-     * @return array
-     */
     protected function getDeliveryTimePluginOptions(ShipmentMethodPluginCollectionTransfer $shipmentMethodPluginCollectionTransfer): array
     {
         $deliveryTimePluginOptions = $shipmentMethodPluginCollectionTransfer->getDeliveryTimePluginOptions();

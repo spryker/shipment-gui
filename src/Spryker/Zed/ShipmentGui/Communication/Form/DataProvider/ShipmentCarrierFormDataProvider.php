@@ -18,19 +18,11 @@ class ShipmentCarrierFormDataProvider
      */
     protected $shipmentFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToShipmentFacadeInterface $shipmentFacade
-     */
     public function __construct(ShipmentGuiToShipmentFacadeInterface $shipmentFacade)
     {
         $this->shipmentFacade = $shipmentFacade;
     }
 
-    /**
-     * @param int|null $idShipmentCarrier
-     *
-     * @return \Generated\Shared\Transfer\ShipmentCarrierTransfer
-     */
     public function getData(?int $idShipmentCarrier = null): ShipmentCarrierTransfer
     {
         if ($idShipmentCarrier === null) {

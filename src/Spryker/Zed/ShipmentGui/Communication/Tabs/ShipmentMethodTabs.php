@@ -63,11 +63,6 @@ class ShipmentMethodTabs extends AbstractTabs
      */
     protected const FOOTER_TEMPLATE = '@ShipmentGui/_partials/form-submit.twig';
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     protected function build(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         $this->addConfigurationTab($tabsViewTransfer)

@@ -28,33 +28,18 @@ class ShipmentGuiCreateShipmentMethodCest
      */
     protected const PAGE_BREADCRUMB = 'Administration / Delivery Methods / Create';
 
-    /**
-     * @param \SprykerTest\Zed\ShipmentGui\ShipmentGuiCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbShouldBeVisible(ShipmentGuiCommunicationTester $i): void
     {
         $i->registerMoneyCollectionFormTypePlugin();
         $this->executeBreadcrumbsVisibilityCheckSteps($i);
     }
 
-    /**
-     * @param \SprykerTest\Zed\ShipmentGui\ShipmentGuiCommunicationTester $i
-     *
-     * @return void
-     */
     public function breadcrumbShouldBeVisibleWhenMoneyFormDoesNotHaveLocaleOption(ShipmentGuiCommunicationTester $i): void
     {
         $i->registerMoneyCollectionFormTypePluginWithoutLocale();
         $this->executeBreadcrumbsVisibilityCheckSteps($i);
     }
 
-    /**
-     * @param \SprykerTest\Zed\ShipmentGui\ShipmentGuiCommunicationTester $i
-     *
-     * @return void
-     */
     protected function executeBreadcrumbsVisibilityCheckSteps(ShipmentGuiCommunicationTester $i): void
     {
         $i->registerProductManagementStoreRelationFormTypePlugin();

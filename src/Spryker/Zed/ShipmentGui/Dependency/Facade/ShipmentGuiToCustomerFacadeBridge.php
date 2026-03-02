@@ -26,39 +26,21 @@ class ShipmentGuiToCustomerFacadeBridge implements ShipmentGuiToCustomerFacadeIn
         $this->customerFacade = $customerFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\AddressesTransfer
-     */
     public function getAddresses(CustomerTransfer $customerTransfer): AddressesTransfer
     {
         return $this->customerFacade->getAddresses($customerTransfer);
     }
 
-    /**
-     * @param int $idCustomerAddress
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer|null
-     */
     public function findCustomerAddressById(int $idCustomerAddress): ?AddressTransfer
     {
         return $this->customerFacade->findCustomerAddressById($idCustomerAddress);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AddressTransfer $addressTransfer
-     *
-     * @return \Generated\Shared\Transfer\AddressTransfer|null
-     */
     public function findCustomerAddressByAddressData(AddressTransfer $addressTransfer): ?AddressTransfer
     {
         return $this->customerFacade->findCustomerAddressByAddressData($addressTransfer);
     }
 
-    /**
-     * @return array
-     */
     public function getAllSalutations(): array
     {
         return $this->customerFacade->getAllSalutations();

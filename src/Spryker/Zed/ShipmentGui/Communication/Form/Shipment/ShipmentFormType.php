@@ -77,11 +77,6 @@ class ShipmentFormType extends AbstractType
      */
     protected const VALIDATION_INVALID_DATE_MESSAGE = 'Date should be in correct format %s.';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
@@ -197,9 +192,6 @@ class ShipmentFormType extends AbstractType
         return $this;
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraints\Date
-     */
     protected function createDateConstraint(): Date
     {
         return new Date([
@@ -210,11 +202,6 @@ class ShipmentFormType extends AbstractType
         ]);
     }
 
-    /**
-     * @param string $minDate
-     *
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\Validator\Constraints\GreaterThanOrEqualDate
-     */
     protected function createDateGreaterThanOrEqualConstraint(string $minDate): GreaterThanOrEqualDate
     {
         return new GreaterThanOrEqualDate($minDate);

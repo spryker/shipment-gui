@@ -45,9 +45,6 @@ use Symfony\Component\Form\FormInterface;
  */
 class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentFormDataProvider
-     */
     public function createShipmentFormDataProvider(): ShipmentFormDataProvider
     {
         return new ShipmentFormDataProvider(
@@ -57,25 +54,16 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentCarrierFormDataProvider
-     */
     public function createShipmentCarrierFormDataProvider(): ShipmentCarrierFormDataProvider
     {
         return new ShipmentCarrierFormDataProvider($this->getShipmentFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Grouper\ProductBundleGrouperInterface
-     */
     public function createProductBundleGrouper(): ProductBundleGrouperInterface
     {
         return new ProductBundleGrouper();
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createShipmentCarrierFormType(): FormInterface
     {
         $shipmentCarrierFormDataProvider = $this->createShipmentCarrierFormDataProvider();
@@ -87,12 +75,6 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param array $formOptions
-     *
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createShipmentCreateForm(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         array $formOptions = []
@@ -111,9 +93,6 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(ViewShipmentMethodForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ViewShipmentMethodFormDataProvider
-     */
     public function createViewShipmentMethodFormDataProvider(): ViewShipmentMethodFormDataProvider
     {
         return new ViewShipmentMethodFormDataProvider(
@@ -122,12 +101,6 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param array $formOptions
-     *
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createShipmentEditForm(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         array $formOptions = []
@@ -135,49 +108,31 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(ShipmentGroupFormType::class, $shipmentGroupTransfer, $formOptions);
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createShipmentMethodDeleteForm(): FormInterface
     {
         return $this->getFormFactory()->create(ShipmentMethodDeleteForm::class);
     }
 
-    /**
-     * @return \Symfony\Component\Form\DataTransformerInterface
-     */
     public function createStringToNumberTransformer(): DataTransformerInterface
     {
         return new StringToNumberTransformer();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Mapper\ShipmentCarrierMapper
-     */
     public function createShipmentCarrierMapper(): ShipmentCarrierMapper
     {
         return new ShipmentCarrierMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Table\ShipmentMethodTable
-     */
     public function createShipmentMethodTable(): ShipmentMethodTable
     {
         return new ShipmentMethodTable($this->getShipmentMethodQuery());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Tabs\ShipmentMethodTabs
-     */
     public function createShipmentMethodTabs(): ShipmentMethodTabs
     {
         return new ShipmentMethodTabs();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentMethodFormDataProvider
-     */
     public function createShipmentMethodFormDataProvider(): ShipmentMethodFormDataProvider
     {
         return new ShipmentMethodFormDataProvider(
@@ -198,9 +153,6 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(ShipmentMethodForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\ShipmentMethod\Constraint\ShipmentMethodNameUniqueConstraint
-     */
     public function createShipmentMethodNameUniqueConstraint(): ShipmentMethodNameUniqueConstraint
     {
         return new ShipmentMethodNameUniqueConstraint([
@@ -208,9 +160,6 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         ]);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Form\ShipmentMethod\Constraint\ShipmentMethodKeyUniqueConstraint
-     */
     public function createShipmentMethodKeyUniqueConstraint(): ShipmentMethodKeyUniqueConstraint
     {
         return new ShipmentMethodKeyUniqueConstraint([
@@ -218,41 +167,26 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         ]);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Communication\Provider\ShipmentOrderItemTemplateProviderInterface
-     */
     public function createShipmentOrderItemTemplateProvider(): ShipmentOrderItemTemplateProviderInterface
     {
         return new ShipmentOrderItemTemplateProvider($this->getShipmentOrderItemTemplatePlugins());
     }
 
-    /**
-     * @return \Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery
-     */
     public function getShipmentMethodQuery(): SpyShipmentMethodQuery
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::PROPEL_QUERY_SHIPMENT_METHOD);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToSalesFacadeInterface
-     */
     public function getSalesFacade(): ShipmentGuiToSalesFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::FACADE_SALES);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToShipmentFacadeInterface
-     */
     public function getShipmentFacade(): ShipmentGuiToShipmentFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::FACADE_SHIPMENT);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToCustomerFacadeInterface
-     */
     public function getCustomerFacade(): ShipmentGuiToCustomerFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::FACADE_CUSTOMER);
@@ -266,33 +200,21 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::SERVICE_SHIPMENT);
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
-     */
     public function getMoneyCollectionFormTypePlugin(): FormTypeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::PLUGIN_MONEY_COLLECTION_FORM_TYPE);
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
-     */
     public function getStoreRelationFormTypePlugin(): FormTypeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::PLUGIN_STORE_RELATION_FORM_TYPE);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToTaxFacadeInterface
-     */
     public function getTaxFacade(): ShipmentGuiToTaxFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::FACADE_TAX);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): ShipmentGuiToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentGuiDependencyProvider::FACADE_LOCALE);

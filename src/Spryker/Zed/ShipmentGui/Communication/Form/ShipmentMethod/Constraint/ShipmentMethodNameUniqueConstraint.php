@@ -27,17 +27,11 @@ class ShipmentMethodNameUniqueConstraint extends Constraint
      */
     protected $shipmentFacade;
 
-    /**
-     * @return \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToShipmentFacadeInterface
-     */
     public function getShipmentFacade(): ShipmentGuiToShipmentFacadeInterface
     {
         return $this->shipmentFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return $this->message;

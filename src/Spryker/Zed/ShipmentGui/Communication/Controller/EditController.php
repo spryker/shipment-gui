@@ -151,11 +151,6 @@ class EditController extends AbstractController
         return $requestedItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupResponseTransfer $responseTransfer
-     *
-     * @return void
-     */
     protected function addStatusMessage(ShipmentGroupResponseTransfer $responseTransfer): void
     {
         if ($responseTransfer->getIsSuccessful()) {
@@ -167,11 +162,6 @@ class EditController extends AbstractController
         $this->addErrorMessage(static::MESSAGE_SHIPMENT_EDIT_FAIL);
     }
 
-    /**
-     * @param int $idSalesShipment
-     *
-     * @return \Generated\Shared\Transfer\SalesShipmentCriteriaTransfer
-     */
     protected function createSalesShipmentCriteriaTransfer(int $idSalesShipment): SalesShipmentCriteriaTransfer
     {
         $shipmentConditionsTransfer = (new SalesShipmentConditionsTransfer())->addIdSalesShipment($idSalesShipment);

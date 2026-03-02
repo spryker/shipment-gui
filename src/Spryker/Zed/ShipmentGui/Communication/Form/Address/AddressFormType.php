@@ -155,11 +155,6 @@ class AddressFormType extends AbstractType
      */
     protected const VALIDATION_ZIP_CODE_MESSAGE = 'Zip code is not valid.';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
@@ -494,9 +489,6 @@ class AddressFormType extends AbstractType
         return $this;
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createNotBlankConstraint(): Constraint
     {
         return new NotBlank([
@@ -541,11 +533,6 @@ class AddressFormType extends AbstractType
         return $this;
     }
 
-    /**
-     * @param int $maxLength
-     *
-     * @return \Symfony\Component\Validator\Constraint
-     */
     protected function createMaxLengthConstraint(int $maxLength = 255): Constraint
     {
         return new Length([
@@ -554,9 +541,6 @@ class AddressFormType extends AbstractType
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraints\Email
-     */
     protected function createEmailConstraint(): Email
     {
         return new Email([
@@ -564,9 +548,6 @@ class AddressFormType extends AbstractType
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\Validator\Constraints\Regex
-     */
     protected function createZipCodeConstraint(): Regex
     {
         return new Regex([

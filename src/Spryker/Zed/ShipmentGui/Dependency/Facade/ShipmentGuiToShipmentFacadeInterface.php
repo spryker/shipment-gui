@@ -25,19 +25,8 @@ interface ShipmentGuiToShipmentFacadeInterface
      */
     public function getMethods(): array;
 
-    /**
-     * @param int $idShipmentMethod
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
-     */
     public function findMethodById(int $idShipmentMethod): ?ShipmentMethodTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentGroupTransfer $shipmentGroupTransfer
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentGroupResponseTransfer
-     */
     public function saveShipment(
         ShipmentGroupTransfer $shipmentGroupTransfer,
         OrderTransfer $orderTransfer
@@ -62,39 +51,14 @@ interface ShipmentGuiToShipmentFacadeInterface
      */
     public function findSalesOrderItemsIdsBySalesShipmentId(int $idSalesOrder, int $idSalesShipment): ArrayObject;
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentCarrierRequestTransfer $shipmentCarrierRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentCarrierTransfer|null
-     */
     public function findShipmentCarrier(ShipmentCarrierRequestTransfer $shipmentCarrierRequestTransfer): ?ShipmentCarrierTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentCarrierTransfer $carrierTransfer
-     *
-     * @return int
-     */
     public function createCarrier(ShipmentCarrierTransfer $carrierTransfer): int;
 
-    /**
-     * @param string $shipmentMethodName
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
-     */
     public function findShipmentMethodByName(string $shipmentMethodName): ?ShipmentMethodTransfer;
 
-    /**
-     * @param string $shipmentMethodKey
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer|null
-     */
     public function findShipmentMethodByKey(string $shipmentMethodKey): ?ShipmentMethodTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $methodTransfer
-     *
-     * @return int|null
-     */
     public function createMethod(ShipmentMethodTransfer $methodTransfer): ?int;
 
     /**
@@ -104,16 +68,8 @@ interface ShipmentGuiToShipmentFacadeInterface
      */
     public function updateMethod(ShipmentMethodTransfer $methodTransfer);
 
-    /**
-     * @param int $idMethod
-     *
-     * @return bool
-     */
     public function deleteMethod(int $idMethod): bool;
 
-    /**
-     * @return \Generated\Shared\Transfer\ShipmentMethodPluginCollectionTransfer
-     */
     public function getShipmentMethodPlugins(): ShipmentMethodPluginCollectionTransfer;
 
     /**
@@ -121,11 +77,6 @@ interface ShipmentGuiToShipmentFacadeInterface
      */
     public function getActiveShipmentCarriers(): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\SalesShipmentCriteriaTransfer $salesShipmentCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\SalesShipmentCollectionTransfer
-     */
     public function getSalesShipmentCollection(
         SalesShipmentCriteriaTransfer $salesShipmentCriteriaTransfer
     ): SalesShipmentCollectionTransfer;

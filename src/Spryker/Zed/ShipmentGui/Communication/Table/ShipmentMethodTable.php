@@ -93,19 +93,11 @@ class ShipmentMethodTable extends AbstractTable
      */
     protected $shipmentMethodQuery;
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery $shipmentMethodQuery
-     */
     public function __construct(SpyShipmentMethodQuery $shipmentMethodQuery)
     {
         $this->shipmentMethodQuery = $shipmentMethodQuery;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return array
-     */
     protected function prepareData(TableConfiguration $config): array
     {
         /** @var array<\Orm\Zed\Shipment\Persistence\SpyShipmentMethod> $shipmentMethodEntities */
@@ -119,20 +111,12 @@ class ShipmentMethodTable extends AbstractTable
         return $shipmentMethodRows;
     }
 
-    /**
-     * @return \Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery
-     */
     protected function prepareQuery(): SpyShipmentMethodQuery
     {
         return $this->shipmentMethodQuery
             ->leftJoinWithShipmentCarrier();
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return array
-     */
     protected function mapShipmentMethodRow(SpyShipmentMethod $shipmentMethodEntity): array
     {
         return [
@@ -145,22 +129,12 @@ class ShipmentMethodTable extends AbstractTable
         ];
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function generateIsActiveLabel(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return $shipmentMethodEntity->isActive() ? $this->generateLabel('Active', 'label-primary')
             : $this->generateLabel('Inactive', 'label-light');
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function buildLinks(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return implode(' ', [
@@ -170,11 +144,6 @@ class ShipmentMethodTable extends AbstractTable
         ]);
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function generateShipmentMethodViewButton(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return $this->generateViewButton(
@@ -185,11 +154,6 @@ class ShipmentMethodTable extends AbstractTable
         );
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function generateShipmentMethodEditButton(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return $this->generateEditButton(
@@ -200,11 +164,6 @@ class ShipmentMethodTable extends AbstractTable
         );
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function generateShipmentMethodDeleteButton(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return $this->generateRemoveButton(
@@ -215,11 +174,6 @@ class ShipmentMethodTable extends AbstractTable
         );
     }
 
-    /**
-     * @param \Orm\Zed\Shipment\Persistence\SpyShipmentMethod $shipmentMethodEntity
-     *
-     * @return string
-     */
     protected function getStoreNames(SpyShipmentMethod $shipmentMethodEntity): string
     {
         $storeNames = [];
@@ -230,11 +184,6 @@ class ShipmentMethodTable extends AbstractTable
         return implode(' ', $storeNames);
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config = $this->configureHeader($config);
@@ -245,11 +194,6 @@ class ShipmentMethodTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureHeader(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setHeader([
@@ -264,11 +208,6 @@ class ShipmentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureSortableColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setSortable([
@@ -281,11 +220,6 @@ class ShipmentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureSearchableColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setSearchable([
@@ -296,11 +230,6 @@ class ShipmentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function setRawColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setRawColumns([

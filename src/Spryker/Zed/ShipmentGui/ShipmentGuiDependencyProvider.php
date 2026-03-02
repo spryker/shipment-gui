@@ -75,11 +75,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGIN_SHIPMENT_ORDER_ITEM_TEMPLATE = 'PLUGIN_SHIPMENT_ORDER_ITEM_TEMPLATE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = $this->addSalesFacade($container);
@@ -96,11 +91,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addTaxFacade(Container $container): Container
     {
         $container->set(static::FACADE_TAX, function (Container $container) {
@@ -112,11 +102,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreRelationFormTypePlugin(Container $container): Container
     {
         $container->set(static::PLUGIN_STORE_RELATION_FORM_TYPE, function () {
@@ -143,11 +128,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         );
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMoneyCollectionFormTypePlugin(Container $container): Container
     {
         $container->set(static::PLUGIN_MONEY_COLLECTION_FORM_TYPE, function (Container $container) {
@@ -176,11 +156,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         );
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesFacade(Container $container): Container
     {
         $container->set(static::FACADE_SALES, function (Container $container) {
@@ -190,11 +165,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentFacade(Container $container): Container
     {
         $container->set(static::FACADE_SHIPMENT, function (Container $container) {
@@ -204,11 +174,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCustomerFacade(Container $container): Container
     {
         $container->set(static::FACADE_CUSTOMER, function (Container $container) {
@@ -218,11 +183,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -232,11 +192,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentService(Container $container): Container
     {
         $container->set(static::SERVICE_SHIPMENT, function (Container $container) {
@@ -246,11 +201,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentMethodQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_SHIPMENT_METHOD, $container->factory(function () {
@@ -260,11 +210,6 @@ class ShipmentGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentOrderItemTemplatePlugins(Container $container): Container
     {
         $container->set(static::PLUGIN_SHIPMENT_ORDER_ITEM_TEMPLATE, function () {

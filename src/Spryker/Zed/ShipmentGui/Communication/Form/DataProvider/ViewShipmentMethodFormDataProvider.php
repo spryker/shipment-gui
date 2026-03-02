@@ -48,10 +48,6 @@ class ViewShipmentMethodFormDataProvider
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToTaxFacadeInterface $taxFacade
-     * @param \Spryker\Zed\ShipmentGui\Dependency\Facade\ShipmentGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ShipmentGuiToTaxFacadeInterface $taxFacade,
         ShipmentGuiToLocaleFacadeInterface $localeFacade
@@ -60,11 +56,6 @@ class ViewShipmentMethodFormDataProvider
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\ShipmentMethodTransfer
-     */
     public function getData(ShipmentMethodTransfer $shipmentMethodTransfer): ShipmentMethodTransfer
     {
         return $shipmentMethodTransfer;

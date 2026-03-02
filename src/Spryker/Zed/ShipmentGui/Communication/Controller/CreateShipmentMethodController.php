@@ -58,11 +58,6 @@ class CreateShipmentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $form
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function handleShipmentMethodForm(FormInterface $form): RedirectResponse
     {
         /** @var \Generated\Shared\Transfer\ShipmentMethodTransfer $shipmentMethodTransfer */
