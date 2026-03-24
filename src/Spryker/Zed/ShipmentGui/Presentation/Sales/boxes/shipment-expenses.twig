@@ -1,3 +1,14 @@
-{{ render(controller('/shipment-gui/sales/shipment-expenses', {
-    orderTransfer: order
-})) }}
+{# @var order \Generated\Shared\Transfer\OrderTransfer #}
+{# @var shipmentExpenseType string #}
+{% if shipmentExpenseType is defined %}
+    {# New optimized approach with ShipmentExpensesSalesOrderDetailDataExpanderPlugin: Direct template rendering without sub-request #}
+    {% include '@ShipmentGui/Sales/shipment-expenses.twig' with {
+        order: order,
+        shipmentExpenseType: shipmentExpenseType,
+    } only %}
+{% else %}
+    {# BC: Fallback to sub-request if plugin not registered #}
+    {{ render(controller('/shipment-gui/sales/shipment-expenses', {
+        orderTransfer: order
+    })) }}
+{% endif %}

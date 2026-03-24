@@ -18,6 +18,8 @@ use Symfony\Component\HttpFoundation\Request;
 class SalesController extends AbstractController
 {
     /**
+     * @deprecated use {@link \Spryker\Zed\ShipmentGui\Communication\Plugin\Sales\ShipmentSalesOrderDetailDataExpanderPlugin} instead.
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @throws \Spryker\Zed\ShipmentGui\Communication\Exception\OrderNotFoundException
@@ -57,6 +59,8 @@ class SalesController extends AbstractController
     }
 
     /**
+     * @deprecated use {@link \Spryker\Zed\ShipmentGui\Communication\Plugin\Sales\ShipmentExpensesSalesOrderDetailDataExpanderPlugin} instead.
+     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @throws \Spryker\Zed\Sales\Business\Exception\OrderNotFoundException

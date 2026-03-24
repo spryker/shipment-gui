@@ -12,6 +12,8 @@ use Generated\Shared\Transfer\ShipmentMethodTransfer;
 use Orm\Zed\Shipment\Persistence\SpyShipmentMethodQuery;
 use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
 use Spryker\Zed\Kernel\Communication\Form\FormTypeInterface;
+use Spryker\Zed\ShipmentGui\Communication\Expander\ShipmentOrderDetailDataExpander;
+use Spryker\Zed\ShipmentGui\Communication\Expander\ShipmentOrderDetailDataExpanderInterface;
 use Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentCarrierFormDataProvider;
 use Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentFormDataProvider;
 use Spryker\Zed\ShipmentGui\Communication\Form\DataProvider\ShipmentMethodFormDataProvider;
@@ -57,6 +59,15 @@ class ShipmentGuiCommunicationFactory extends AbstractCommunicationFactory
     public function createShipmentCarrierFormDataProvider(): ShipmentCarrierFormDataProvider
     {
         return new ShipmentCarrierFormDataProvider($this->getShipmentFacade());
+    }
+
+    public function createShipmentOrderDetailDataExpander(): ShipmentOrderDetailDataExpanderInterface
+    {
+        return new ShipmentOrderDetailDataExpander(
+            $this->getShipmentService(),
+            $this->createProductBundleGrouper(),
+            $this->createShipmentOrderItemTemplateProvider(),
+        );
     }
 
     public function createProductBundleGrouper(): ProductBundleGrouperInterface
