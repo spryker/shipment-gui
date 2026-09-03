@@ -8,6 +8,7 @@
 namespace Spryker\Zed\ShipmentGui\Communication\Form\Shipment;
 
 use Generated\Shared\Transfer\ShipmentTransfer;
+use Spryker\Zed\Gui\Communication\Form\Type\DatePickerType;
 use Spryker\Zed\Kernel\Communication\Form\AbstractType;
 use Spryker\Zed\ShipmentGui\Communication\Form\Address\AddressFormType;
 use Spryker\Zed\ShipmentGui\Communication\Form\Validator\Constraints\GreaterThanOrEqualDate;
@@ -75,6 +76,11 @@ class ShipmentFormType extends AbstractType
     /**
      * @var string
      */
+    protected const LEGACY_REQUESTED_DELIVERY_DATE_FIELD_CLASS = 'datepicker safe-datetime';
+
+    /**
+     * @var string
+     */
     protected const VALIDATION_INVALID_DATE_MESSAGE = 'Date should be in correct format %s.';
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -128,16 +134,11 @@ class ShipmentFormType extends AbstractType
      */
     public function addRequestedDeliveryDateField(FormBuilderInterface $builder)
     {
-        $builder->add(static::FIELD_REQUESTED_DELIVERY_DATE, DateType::class, [
+        $builder->add(static::FIELD_REQUESTED_DELIVERY_DATE, $this->getRequestedDeliveryDateFieldType(), [
             'label' => false,
             'required' => false,
-            'widget' => 'single_text',
             'input' => 'string',
             'format' => static::FIELD_REQUESTED_DELIVERY_DATE_FORMAT,
-            'html5' => false,
-            'attr' => [
-                'class' => 'datepicker safe-datetime',
-            ],
             'constraints' => [
                 $this->createDateConstraint(),
                 $this->createDateGreaterThanOrEqualConstraint(static::VALIDATION_DATE_TODAY),
@@ -155,9 +156,44 @@ class ShipmentFormType extends AbstractType
 
                 return [static::VALIDATION_GROUP_SHIPPING_ADDRESS];
             },
-        ]);
+        ] + $this->getRequestedDeliveryDateFieldTypeOptions());
 
         return $this;
+    }
+
+    protected function getRequestedDeliveryDateFieldType(): string
+    {
+        if ($this->isGuiDatePickerTypeAvailable()) {
+            return DatePickerType::class;
+        }
+
+        return DateType::class;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function getRequestedDeliveryDateFieldTypeOptions(): array
+    {
+        if ($this->isGuiDatePickerTypeAvailable()) {
+            return [
+                // A delivery cannot be requested for a date that has already passed.
+                'min_date' => DatePickerType::DATE_TODAY,
+            ];
+        }
+
+        return [
+            'widget' => 'single_text',
+            'html5' => false,
+            'attr' => [
+                'class' => static::LEGACY_REQUESTED_DELIVERY_DATE_FIELD_CLASS,
+            ],
+        ];
+    }
+
+    protected function isGuiDatePickerTypeAvailable(): bool
+    {
+        return class_exists(DatePickerType::class);
     }
 
     /**
