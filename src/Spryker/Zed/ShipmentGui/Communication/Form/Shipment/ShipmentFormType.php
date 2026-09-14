@@ -161,6 +161,9 @@ class ShipmentFormType extends AbstractType
         return $this;
     }
 
+    /**
+     * @phpstan-return class-string<\Symfony\Component\Form\FormTypeInterface>
+     */
     protected function getRequestedDeliveryDateFieldType(): string
     {
         if ($this->isGuiDatePickerTypeAvailable()) {

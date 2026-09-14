@@ -22,8 +22,6 @@ class ShipmentFormTypePlugin extends AbstractPlugin implements FormTypeInterface
      * - Returns ShipmentFormType class name resolution.
      *
      * @api
-     *
-     * @return string
      */
     public function getType(): string
     {

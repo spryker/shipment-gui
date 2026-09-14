@@ -91,15 +91,15 @@ class ShipmentCarrierFormType extends AbstractType
             'label' => static::LABEL_NAME,
             'constraints' => [
                 new NotBlank(),
-                new Callback([
-                    'callback' => function (string $carrierName, ExecutionContextInterface $context): void {
+                new Callback(
+                    callback: function (string $carrierName, ExecutionContextInterface $context): void {
                         $shipmentCarrierRequestTransfer = $this->createShipmentCarrierRequestTransfer($carrierName, $context);
 
                         if ($this->getFactory()->getShipmentFacade()->findShipmentCarrier($shipmentCarrierRequestTransfer)) {
                             $context->addViolation(static::MESSAGE_VIOLATION);
                         }
                     },
-                ]),
+                ),
             ],
         ]);
 
