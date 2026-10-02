@@ -40,7 +40,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Spryker\\": "src/Spryker/"
+            "Spryker\\": "src/Spryker/",
+            "SprykerTest\\Zed\\ShipmentGui\\PageObject\\": "tests/SprykerTest/Zed/ShipmentGui/_support/PageObject/"
         }
     },
     "autoload-dev": {
