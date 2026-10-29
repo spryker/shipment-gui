@@ -132,7 +132,7 @@ class ShipmentMethodTable extends AbstractTable
     protected function generateIsActiveLabel(SpyShipmentMethod $shipmentMethodEntity): string
     {
         return $shipmentMethodEntity->isActive() ? $this->generateLabel('Active', 'label-primary')
-            : $this->generateLabel('Inactive', 'label-light');
+            : $this->generateLabel('Inactive', 'badge-outline-dark');
     }
 
     protected function buildLinks(SpyShipmentMethod $shipmentMethodEntity): string
